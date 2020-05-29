@@ -43,6 +43,7 @@ public class Program {
 			somaSalario += salario; // tratativa 2
 			
 			if(salario > maiorSalario) { // tratativa 3
+				maiorSalario = salario;
 				ganhaMais = nome; 
 			}
 		} while (opcao != 'N');
