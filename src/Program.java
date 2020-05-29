@@ -8,8 +8,8 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 
 		String nome;
-		int horasTrab;
-		double valorPorHora;
+		int horasTrab, somaHoras = 0;
+		double valorPorHora, somaSalario = 0;
 		char opcao;
 		int opcaoMenu;
 
@@ -34,6 +34,10 @@ public class Program {
 
 			System.out.print("Digitar outro (S/N)? ");
 			opcao = sc.next().charAt(0);
+			
+			somaHoras += horasTrab; // tratativa 1
+			
+			somaSalario += valorPorHora * horasTrab; // tratativa 2
 		} while (opcao != 'N');
 		
 		// Menu repetindo
@@ -51,8 +55,10 @@ public class Program {
 
 			switch (opcaoMenu) {
 				case 1:
+					System.out.println("Total de horas: " + somaHoras);
 					break;
 				case 2:
+					System.out.printf("Custo total = R$ %.2f\n", somaSalario);
 					break;
 				case 3:
 					break;
