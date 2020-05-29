@@ -7,9 +7,10 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 
-		String nome;
+		String nome, ganhaMais = "qualquer";
 		int horasTrab, somaHoras = 0;
-		double valorPorHora, somaSalario = 0;
+		double valorPorHora, salario,somaSalario = 0;
+		double maiorSalario = 0;
 		char opcao;
 		int opcaoMenu;
 
@@ -37,7 +38,13 @@ public class Program {
 			
 			somaHoras += horasTrab; // tratativa 1
 			
-			somaSalario += valorPorHora * horasTrab; // tratativa 2
+			salario = horasTrab * valorPorHora; 
+			
+			somaSalario += salario; // tratativa 2
+			
+			if(salario > maiorSalario) { // tratativa 3
+				ganhaMais = nome; 
+			}
 		} while (opcao != 'N');
 		
 		// Menu repetindo
@@ -61,6 +68,7 @@ public class Program {
 					System.out.printf("Custo total = R$ %.2f\n", somaSalario);
 					break;
 				case 3:
+					System.out.println("Pessoa que ganhou mais: " + ganhaMais);
 					break;
 				case 4:
 					System.out.println("FIM DO PROGRAMA!");
